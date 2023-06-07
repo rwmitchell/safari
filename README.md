@@ -12,6 +12,8 @@ other OSes removed has Safari only runs on MacOS.
 
 A full URL is required, with leading http:// or https://
 
+A local file can be opened just by specifying a file.
+
 Used in combination with 'web-search' plugin, 'google' will
 use 'safari' instead of 'open' to display the search.
 
