@@ -36,7 +36,19 @@ EOF
 # This works, but args must be a full URL
 function safari () {
   [[ -n $_safari_script ]] || _load_safari_script
-  osascript -e $_safari_script $@
+
+  for url in $@; do
+
+    # if url is a local file, redo url
+    if [[ -e $url ]]; then
+      url="file:///"$(command ls -1 -d $PWD/$url)
+    fi
+    printf "Opening: %s\n" "$url"
+    osascript -e $_safari_script $url
+  done
+  #
+# osascript -e $_safari_script $@
+
 }
 
 # Replace open_command from omz plugin
