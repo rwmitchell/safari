@@ -40,9 +40,8 @@ function safari () {
   for url in $@; do
 
     # if url is a local file, redo url
-    if [[ -e $url ]]; then
-      url="file:///"$(command ls -1 -d $PWD/$url)
-    fi
+    [[ -e $url         ]] && url="file:///"$(command ls -1 -d $PWD/$url)
+    [[    $url =~ ":/" ]] || url="https://$url"
     printf "Opening: %s\n" "$url"
     osascript -e $_safari_script $url
   done

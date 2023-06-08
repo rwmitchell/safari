@@ -10,9 +10,11 @@ other OSes removed has Safari only runs on MacOS.
 ## Usage
 ```safari URL```
 
-A full URL is required, with leading http:// or https://
+A local file is opened just by specifying the filename.
 
-A local file can be opened just by specifying a file.
+If the URL does not contain ":/", "https://" will be prepended.
+
+A full URL is required for anything else.
 
 Used in combination with 'web-search' plugin, 'google' will
 use 'safari' instead of 'open' to display the search.
