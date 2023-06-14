@@ -37,6 +37,8 @@ EOF
 function safari () {
   [[ -n $_safari_script ]] || _load_safari_script
 
+  [[ $# == 0 ]] && osascript -e $_safari_script
+
   for url in $@; do
 
     # if url is a local file, redo url
